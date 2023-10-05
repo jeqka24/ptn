@@ -1,24 +1,22 @@
-from inn import validate_inn
-from snils import validate_snils
-from isin import validate_isin
-from ean import validate_ean
-from isbn import validate_isbn
+from .inn import validate_inn
+from .snils import validate_snils
+from .isin import validate_isin
+from .ean import validate_ean
+from .isbn import validate_isbn
 
 __all__ = [validate_snils, validate_inn, validate_isin, validate_ean, validate_isbn]
 
-# Done:
+# Сделано:
 #  - ИНН
 #  - СНИЛС
 #  - ISIN (Международный код ценной бумаги, в том числе и банковских карт)
-#  - EAN-13 ()
-
+#       from https://ru.wikipedia.org/wiki/Контрольное_число | https://en.wikipedia.org/wiki/Check_digit add:
+#       Примеры - https://www.isin.org/isin-database/ :
+#  - EAN-13 () / ISBN
+#       - EAN-8 / EAN-13 / UPC-12, см. https://ru.wikipedia.org/wiki/GS1 - стандартизация учета и штрихового кодирования
+#       - ISBN - Международный стандартный номер книги - см. EAN-13
 # ToDo:
 # Добавить дополнительные валидаторы из
-#  from https://ru.wikipedia.org/wiki/Контрольное_число | https://en.wikipedia.org/wiki/Check_digit add:
-#       Примеры - https://www.isin.org/isin-database/ :
-
-#  - EAN-8 / EAN-13 / UPC-12, см. https://ru.wikipedia.org/wiki/GS1 - стандартизация учета и штрихового кодирования
-#  - ISBN - Международный стандартный номер книги - см. EAN-13
 #  - рассчетный счет + БИК
 #  - ОКПО -     Общероссийский классификатор предприятий и организаций. Содержит восьми- или десятизначный номер
 #               юридического лица, указываемый в бухгалтерских документах.

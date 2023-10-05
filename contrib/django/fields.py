@@ -31,10 +31,10 @@ class InnField(CharField):
 
 class SnilsField(CharField):
     default_validators = [snils_validator]
-    description = _("Номер ИНН")
+    description = _("Номер СНИЛС")
 
     def __init__(self, *args, **kwargs):
-        # max_length=13 to hold any INN number
+        # max_length=13 to hold any SNILS number
         kwargs.setdefault('max_length', 13)
         super().__init__(*args, **kwargs)
 
@@ -45,7 +45,7 @@ class SnilsField(CharField):
         return name, path, args, kwargs
 
     def formfield(self, **kwargs):
-        # As with CharField, this will cause PTN validation to be performed
+        # As with CharField, this will cause SNILS validation to be performed
         # twice.
         return super().formfield(**{
             'form_class': forms.CharField,
@@ -58,7 +58,7 @@ class EanField(CharField):
     description = _("Номер EAN-13")
 
     def __init__(self, *args, **kwargs):
-        # max_length=13 to hold any INN number
+        # max_length=13 to hold any EAN number
         kwargs.setdefault('max_length', 13)
         super().__init__(*args, **kwargs)
 
@@ -69,7 +69,7 @@ class EanField(CharField):
         return name, path, args, kwargs
 
     def formfield(self, **kwargs):
-        # As with CharField, this will cause PTN validation to be performed
+        # As with CharField, this will cause EAN validation to be performed
         # twice.
         return super().formfield(**{
             'form_class': forms.CharField,
@@ -82,7 +82,7 @@ class IsbnField(CharField):
     description = _("Номер ISBN")
 
     def __init__(self, *args, **kwargs):
-        # max_length=13 to hold any INN number
+        # max_length=10 to hold  ISBN number
         kwargs.setdefault('max_length', 10)
         super().__init__(*args, **kwargs)
 
@@ -93,7 +93,7 @@ class IsbnField(CharField):
         return name, path, args, kwargs
 
     def formfield(self, **kwargs):
-        # As with CharField, this will cause PTN validation to be performed
+        # As with CharField, this will cause ISBN validation to be performed
         # twice.
         return super().formfield(**{
             'form_class': forms.CharField,
@@ -117,7 +117,7 @@ class IsinField(CharField):
         return name, path, args, kwargs
 
     def formfield(self, **kwargs):
-        # As with CharField, this will cause PTN validation to be performed
+        # As with CharField, this will cause ISIN validation to be performed
         # twice.
         return super().formfield(**{
             'form_class': forms.CharField,
